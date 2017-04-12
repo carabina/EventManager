@@ -13,6 +13,25 @@ Inside AppDelegate.swift
 ```swfit
 let Events = EventManager()
 ```
+Then add the following inside your view controllers
+```swift
+Events.listenTo(eventName: "synchronizeAccountDataEvent", action: self.synchronizeAccountData)
+```
+After you can push to the controller using this:
+```swift
+Events.trigger(eventName: "synchronizeAccountDataEvent")
+```
+Inside the listener function then:
+```swift
+    /// Photo uploaded
+    func synchronizeAccountData (information:Any?)
+    {
+        if let mongoId = information as? String
+        {
+            print("Uploaded account id: " + mongoId)
+        }
+    }
+```
 
 ## Requirements
 
@@ -27,7 +46,7 @@ pod "EventManager"
 
 ## Author
 
-acct<blob>=<NULL>, andrei@fortify.pro
+Fortify Communications Inc, andrei@fortify.pro
 
 ## License
 
