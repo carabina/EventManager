@@ -13,7 +13,7 @@ Inside AppDelegate.swift
 ```swfit
 let Events = EventManager()
 ```
-Then add the following inside your view controllers
+Then add the following inside your view controllers ViewDidLoad or any other init function
 ```swift
 Events.listenTo(eventName: "synchronizeAccountDataEvent", action: self.synchronizeAccountData)
 ```
